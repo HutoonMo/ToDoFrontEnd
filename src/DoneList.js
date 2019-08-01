@@ -1,9 +1,9 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-function TodoList(props){
-    const toDoTasks=props.tasks.filter(i => !i.completed);
-    const tasks = toDoTasks.map(item => (
+function DoneList(props){
+    const DoneTasks=props.tasks.filter(i => i.completed);
+    const tasks = DoneTasks.map(item => (
         <TodoItem item={item} key={item.title} DeleteTask={props.DeleteTask} SubmitTask={props.SubmitTask} />
       ));
       return (
@@ -13,4 +13,4 @@ function TodoList(props){
     );
 }
 
-export default TodoList;
+export default DoneList;

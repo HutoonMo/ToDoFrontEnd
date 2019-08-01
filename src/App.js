@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import TodoList from "./TodoList";
+import DoneList from "./DoneList";
 import AddForm from "./AddForm";
 class App extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class App extends Component {
   componentDidMount() {
     this.GetList();
   }
+
   GetList = () => {
     axios
       .get("http://localhost:8000/api/todos/")
@@ -77,7 +79,7 @@ class App extends Component {
                       <div className="card-body text-info">
                         
                         <p className="card-text">
-                          List 2
+                           <DoneList tasks ={this.state.todoList} DeleteTask={this.DeleteTask} SubmitTask={this.SubmitTask} />
                         </p>
                       </div>
                     </div>
