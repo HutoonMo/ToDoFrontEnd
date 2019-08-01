@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import TodoList from "./TodoList";
+import AddForm from "./AddForm";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,8 +38,9 @@ class App extends Component {
     }
     axios
       .post("http://localhost:8000/api/todos/", item)
-      .then(res => this.refreshList());
+      .then(res => this.GetList());
   };
+
   render() {
     return (
       <main className="content">
@@ -48,10 +50,10 @@ class App extends Component {
         <div className="row ">
           <div className="col-md-9 col-sm-10 mx-auto p-0">
             <div className="card p-3">
+            
               <div className="">
-                <button onClick={this.createItem} className="btn btn-info">
-                  Add task
-                </button>
+              <AddForm  SubmitTask={this.SubmitTask} />
+
                 
               </div>
               <div className="container">
@@ -62,7 +64,7 @@ class App extends Component {
                       <div className="card-body text-info">
                         
                         <div className="card-text">
-                          List1
+                          
                           <TodoList tasks ={this.state.todoList} DeleteTask={this.DeleteTask} SubmitTask={this.SubmitTask} />
                         </div>
                       </div>
