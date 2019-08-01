@@ -19,7 +19,8 @@ class TodoItem extends Component {
             // this.state.done = !this.state.done;
             //console.log("CLICKED")
             this.setState({ completed: !this.state.completed });
-            
+            task.completed= !task.completed;
+            this.props.SubmitTask(task);
           };
 
         return (

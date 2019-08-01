@@ -9,12 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewCompleted: false,
-      activeItem: {
-        title: "",
-        description: "",
-        completed: false
-      },
+
       todoList: []
     };
   }
@@ -32,7 +27,18 @@ class App extends Component {
       .delete(`http://localhost:8000/api/todos/${task_id}`)
       .then(res => this.GetList());
   };
-
+  SubmitTask = item => {
+    
+    if (item.id) {
+      axios
+        .put(`http://localhost:8000/api/todos/${item.id}/`, item)
+        .then(res => this.GetList());
+      return;
+    }
+    axios
+      .post("http://localhost:8000/api/todos/", item)
+      .then(res => this.refreshList());
+  };
   render() {
     return (
       <main className="content">
@@ -57,7 +63,7 @@ class App extends Component {
                         
                         <div className="card-text">
                           List1
-                          <TodoList tasks ={this.state.todoList} DeleteTask={this.DeleteTask} />
+                          <TodoList tasks ={this.state.todoList} DeleteTask={this.DeleteTask} SubmitTask={this.SubmitTask} />
                         </div>
                       </div>
                     </div>
