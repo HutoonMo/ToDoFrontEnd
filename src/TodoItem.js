@@ -31,7 +31,7 @@ class TodoItem extends Component {
         
         </td>
         <td> {task.title} </td>
-       <td>  <i > <Octicon  icon={Pencil}/> </i> </td>
+       <td>  <i onClick={() => this.props.UpdateTask(task)}> <Octicon  icon={Pencil}/> </i> </td>
        <td>  <i onClick={() => this.props.DeleteTask(task.id)} > <Octicon  icon={Trashcan}/> </i> </td>
         </tr>
         );

@@ -1,8 +1,8 @@
 import React from "react";
-class AddForm extends React.Component {
+class UpdateForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {value: this.props.task_title, create:this.props.create};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,12 +16,14 @@ class AddForm extends React.Component {
     //  alert('A name was submitted: ' + this.state.value);
      // this.props.add(this.state.value);
     const item={
+        id:this.props.task_id,
        title: this.state.value,
        completed: false,
      }
-     this.props.SubmitTask(item);
+     this.props.UpdateTask(item);
       event.preventDefault();
-      this.setState({value: ""});
+      this.setState({value: "", create:true});
+     this.props.toggleCreate();
     }
     
   
@@ -35,10 +37,10 @@ class AddForm extends React.Component {
            </div>
          
           <div className="form-group mx-sm-3 mb-2"> 
-          <input type="submit" value="Add Task" className="btn btn-info" />
+          <input type="submit" value="Update Task" className="btn btn-info" />
           </div>
         </form>
       );
     }
   }
-  export default AddForm;
+  export default UpdateForm;
