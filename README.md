@@ -20,4 +20,5 @@ this repository contains the Front-End part of a simple To Do List web applicati
 - Add Task
 - Edit Task
 - Delete Task
+
 ![](https://media.giphy.com/media/kIFg7UVMFH7rUEtNAG/giphy.gif) 
