@@ -9,9 +9,9 @@ class TodoItem extends Component {
         const task = this.props.item;
         const statusIcon = () => {
             if (this.state.completed) {
-              return Check;
+              return X ;
             } else {
-              return X;
+              return Check;
             }
           };
           const toggleStatus = () => {
